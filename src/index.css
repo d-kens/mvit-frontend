@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
+
+/* css reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+* {
+    margin: 0;
+}
+  
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+  
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* General Styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    background: #dfe9f5;
+    color: black;
+}
+
+/* Global styles */
+.btn {
+    /* text-decoration: none;
+    padding: 12px 40px;
+    border-radius: 4px;
+    color: #fff;
+    background: rgb(56, 56, 168);
+    text-align: center; */
+
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: rgb(56, 56, 168);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: blue;
+}
+
+
+/* public */
+.public {
+    width: 100%;
+    height: 100vh;
+}
+
+.public .left {
+    display: none;
+}
+
+.public .right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.public .right .top {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.public .right .top h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.public .right .get-started {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.public .right .get-started .links {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+@media (min-width: 500px) {
+    .public .right .get-started .links {
+        max-width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .public .right .get-started .links a {
+        flex-grow: 1;
+    }
+}
+
+
+
+@media (min-width: 768px)  {
+    .public {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+
+
+    .public .right .top {
+        display: none;
+    }
+
+    .public .left {
+        display: block;
+
+        background-color: #2e3750;
+        color: #fff;
+        background-image: url('../public/img/background.jpg');
+        background-size: cover;
+        background-position: top right;
+        background-blend-mode: multiply;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 4px;
+    }
+
+
+    .public .left h1 {
+        font-size: 50px;
+    }
+
+    .public .right {
+        padding: 50px;
+    }
+
+    .public .right .get-started h2 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+}
+
+/* Register and Login Forms */
+.auth-form-wrapper {
+    width: 380px;
+    max-width: 100%;
+    margin: 100px auto;
+    padding: 2rem 0.5rem;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+}
+
+.auth-form-wrapper h1 {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.auth-form-wrapper form input{
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #e4e4e4;
+}
+
+.auth-form-wrapper form input:focus {
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.auth-form-wrapper button {
+    margin-top: 1.2rem;
+    width: 90%;
+}
+
+.auth-form-wrapper .member {
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+}
+
+.auth-form-wrapper .member a {
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+}
+
+/* Dashboard Header Styles */
+.dashboard .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 7px;
+    padding-bottom: 4px;
+
+    border-bottom: #2e3750 solid 1px;
+}
+
+.dashboard .dashboard-header .user {
+    font-style: italic;
+}
+
+.dashboard .dashboard-header button {
+    padding: 7px 30px;
+}
+
+/* Dashboard Body Styles */
+.dashboard .dashboard-body {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.dashboard .dashboard-body .db-left {
+    display: none;
+}
+
+.dashboard .dashboard-body .db-right .classification-card{
+    background-color: #eceaea;
+    padding: 10px;
+}
+
+.db-right .classification-card form {
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.db-right .classification-card form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.db-right .classification-card form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.db-right .classification-card form button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.db-right .classification-card form button:hover {
+    background-color: #0056b3;
+}
+
+.db-right .classification-card .classification-result-container {
+    border: rgb(129, 127, 127) dotted 1px;
+
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 6px;
+}
+
+.db-right .classification-card .classification-result-container p {
+    margin: 10px 0;
+    color: black;
+    font-weight: bold;
+}
+
+.db-right .classification-card .classification-result-container .image-container {
+    margin-top: 10px;
+}
+
+.db-right .classification-card .classification-result-container .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+} 
+
+.prev-results {
+    margin-top: 20px;
+}
+
+.prev-results .results {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.prev-results .results .result-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 100%;
+}
+
+.prev-results .results .result-card .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+
+
