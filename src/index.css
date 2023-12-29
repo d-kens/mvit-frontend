@@ -37,26 +37,21 @@ body {
 
 /* Global styles */
 .btn {
-    /* text-decoration: none;
-    padding: 12px 40px;
-    border-radius: 4px;
-    color: #fff;
-    background: rgb(56, 56, 168);
-    text-align: center; */
 
     font-size: 1rem;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
     text-decoration: none;
     outline: none;
     border: none;
     color: #fff;
-    background: rgb(56, 56, 168);
+    background-color: #007bff;
     text-align: center;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background-color: blue;
+    background-color: #0056b3;
 }
 
 
@@ -213,67 +208,67 @@ body {
     text-decoration: none;
 }
 
-/* Dashboard Header Styles */
-.dashboard .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding: 7px;
-    padding-bottom: 4px;
-
-    border-bottom: #2e3750 solid 1px;
-}
-
-.dashboard .dashboard-header .user {
-    font-style: italic;
-}
-
-.dashboard .dashboard-header button {
-    padding: 7px 30px;
-}
-
-/* Dashboard Body Styles */
-.dashboard .dashboard-body {
+/* DashBoard Styles */
+.dashboard {
     width: 90%;
     margin: 0 auto;
     margin-top: 20px;
 }
 
-.dashboard .dashboard-body .db-left {
+
+
+.dashboard .dashboard-left {
     display: none;
 }
 
-.dashboard .dashboard-body .db-right .classification-card{
-    background-color: #eceaea;
-    padding: 10px;
+
+.dashboard .dashboard-right .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: #2e3750 solid 2px;
+    padding-bottom: 2px;
 }
 
-.db-right .classification-card form {
+.dashboard .dashboard-right .nav .user {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.dashboard-right .classify-card {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-right .classify-card .classify-form-wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+.classify-card .classify-form-wrapper form {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     background-color: #fff;
-    width: 100%;
-    max-width: 560px;
     margin: 0 auto;
 }
 
-.db-right .classification-card form label {
+.classify-card .classify-form-wrapper form label {
     display: block;
     margin-bottom: 5px;
 }
 
-.db-right .classification-card form input[type="file"] {
+.classify-card .classify-form-wrapper form input[type="file"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.db-right .classification-card form button {
+.classify-card .classify-form-wrapper form button {
     margin-top: 10px;
     background-color: #007bff;
     color: #fff;
@@ -283,63 +278,101 @@ body {
     cursor: pointer;
 }
 
-.db-right .classification-card form button:hover {
+.classify-card .classify-form-wrapper form button:hover {
     background-color: #0056b3;
 }
 
-.db-right .classification-card .classification-result-container {
-    border: rgb(129, 127, 127) dotted 1px;
+.classify-card .classify-result-container {
+    border: #8e9094 dotted 1px;
 
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding: 6px;
+    margin-top: 30px;
+    padding: 20px;
 }
 
-.db-right .classification-card .classification-result-container p {
-    margin: 10px 0;
+.classify-card .classify-result-container .classify-result {
+    margin-bottom: 5px;
+}
+
+.classify-card .classify-result-container .classify-result span{
     color: black;
     font-weight: bold;
 }
 
-.db-right .classification-card .classification-result-container .image-container {
-    margin-top: 10px;
+@media (min-width: 1000px) {
+
+    .dashboard {
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 55% 45%;
+    }
+
+    .dashboard .dashboard-left {
+        background-color: #2e3750;
+        color: #fff;
+        background-image: url('../public/img/background.jpg');
+        background-size: cover;
+        background-position: top right;
+        background-blend-mode: multiply;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 4px;
+    }
+
+    .dashboard .dashboard-right {
+        padding: 50px;
+    }
+
+    .dashboard-right .classify-card {
+        margin-top: 60px;
+    }
 }
 
-.db-right .classification-card .classification-result-container .image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-} 
-
-.prev-results {
+.dashboard-right .prev-results {
     margin-top: 20px;
 }
 
+.dashboard-right .prev-results h3 {
+    margin-bottom: 5px;
+}
+
 .prev-results .results {
-    margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
-.prev-results .results .result-card {
+.results .prev-result-card {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    width: 100%;
 }
 
-.prev-results .results .result-card .image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.prev-result-card .timestamp {
+    color: #aaa;
   }
 
+.prev-result-card .prev-image-container {
+    max-width: 100%;
+    height: auto;
+}
+  
+.prev-result-card .prev-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.dash-links {
+    margin-top: 100px;
+    text-align: center;
+}
 
+  

@@ -4,6 +4,8 @@ import Public from './components/Public'
 import Login from './features/auth/Login'
 import Register from './features/auth/Register'
 import DashBoardLayout from './components/DashBoardLayout'
+import Classify from './features/classification/Classify'
+import PreviousResults from './features/classification/PreviousResults'
 
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
 
         { /* Protected Routes */ }
         <Route path='/dash' element={<DashBoardLayout />}>
+          <Route index element={<Classify />} />
+
+          <Route path='previous-results' element={<PreviousResults />} />
           
         </Route>
 
