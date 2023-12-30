@@ -40,10 +40,6 @@ function Classify() {
   };
 
 
-  console.log(result)
-
-
-
   return (
     <div className='classify-card'>
         <div className='classify-form-wrapper'>
@@ -64,7 +60,7 @@ function Classify() {
                 </div>
 
                 <div className="classify-image-container">
-                    <img src={result.img_url} alt="Classified Image" />
+                    <img src={result.image_url} alt="Classified Image" />
                 </div>
             </div>
         )}

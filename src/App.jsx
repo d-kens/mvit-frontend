@@ -9,6 +9,8 @@ import PreviousResults from './features/classification/PreviousResults'
 
 
 function App() {
+  const userId = 1;
+
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
@@ -21,7 +23,7 @@ function App() {
         <Route path='/dash' element={<DashBoardLayout />}>
           <Route index element={<Classify />} />
 
-          <Route path='previous-results' element={<PreviousResults />} />
+          <Route path='previous-results' element={<PreviousResults userId={userId} />} />
           
         </Route>
 
