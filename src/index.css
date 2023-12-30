@@ -55,6 +55,7 @@ body {
 }
 
 
+
 /* public */
 .public {
     width: 100%;
@@ -164,8 +165,8 @@ body {
 
 /* Register and Login Forms */
 .auth-form-wrapper {
-    width: 380px;
-    max-width: 100%;
+    max-width: 380px;
+    width: 90%;
     margin: 100px auto;
     padding: 2rem 0.5rem;
     background-color: #fff;
@@ -386,6 +387,20 @@ body {
     margin-top: 30px;
 
     margin-bottom: 10px;
+}
+
+/* ! To moved to appropriate locations later */
+.password-instruction {
+    background-color: black;
+    color: #fff;
+}
+
+.pwd-red-outline {
+    border: red solid 1px;
+}
+
+.pwd-green-outline {
+    border: green solid 1px;
 }
 
   

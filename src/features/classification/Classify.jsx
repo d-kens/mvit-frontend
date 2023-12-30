@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../api/axios';
+
+const CLASSIFY_URL = '/classification/classify'
 
 function Classify() {
 
@@ -28,7 +30,7 @@ function Classify() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/classification/classify', formData);
+      const response = await axios.post(CLASSIFY_URL, formData);
       setResult(response.data);
       // clear any previous error on successfull response
       setRequestError(null)

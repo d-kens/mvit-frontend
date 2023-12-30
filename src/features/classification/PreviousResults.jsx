@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import axios  from '../../api/axios';
+
+const RESULTS_URL_BASE = '/classification/classification_results/';
+const PAGE_PARAM = 'page=';
+const PER_PAGE_PARAM = 'per_page=';
 
 const PreviousResults = ({ userId }) => {
 
@@ -9,13 +14,14 @@ const PreviousResults = ({ userId }) => {
   const [perPage, setPerPage] = useState(2);
   const [totalPages, setTotalPages] = useState(0);
 
+  const RESULTS_URL = `${RESULTS_URL_BASE}${userId}?${PAGE_PARAM}${currentPage}&${PER_PAGE_PARAM}${perPage}`;
+
+
 
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:5000/classification/classification_results/${userId}?page=${currentPage}&per_page=${perPage}`
-        );
+        const response = await axios.get(RESULTS_URL);
 
         if(response.status === 200) {
           setResults(response.data.results);
