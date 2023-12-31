@@ -36,7 +36,7 @@ const Register = () => {
 
     try {
       // Send data as JSON to the server
-      const response = await axios.post(REGISTER_USER_URL, dataToSend, {
+      const response = await axios.post(REGISTER_USER_URL, JSON.stringify(dataToSend), {
         headers: {
           'Content-Type': 'application/json',
         },

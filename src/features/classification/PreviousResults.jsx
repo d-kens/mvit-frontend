@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-import axios  from '../../api/axios';
+import { useNavigate, useLocation } from 'react-router-dom';
+// import axios  from '../../api/axios';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 const RESULTS_URL_BASE = '/classification/classification_results/';
 const PAGE_PARAM = 'page=';
 const PER_PAGE_PARAM = 'per_page=';
 
+// import useRefreshToken from '../../hooks/useRefreshToken';
+
+
+
 const PreviousResults = ({ userId }) => {
+
+  // const refresh = useRefreshToken();
+  const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const location = useLocation();
+
 
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
@@ -21,7 +32,7 @@ const PreviousResults = ({ userId }) => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await axios.get(RESULTS_URL);
+        const response = await axiosPrivate.get(RESULTS_URL);
 
         if(response.status === 200) {
           setResults(response.data.results);
@@ -34,12 +45,21 @@ const PreviousResults = ({ userId }) => {
 
 
       } catch (error) {
-        if (error.response && error.response.status === 404) {
-          setError('User not found');
-        } else {
-          console.error('Error fetching classification results:', error);
+        // if (error.response && error.response.status === 404) {
+        //   setError('User not found');
+        // } 
+        if (error.response && error.response.status === 500) {
           setError('Internal server error');
         }
+
+        navigate('/login', { state: { from: location }, replace: true })
+        
+        // else if (error.response && error.response.status === 401) {
+        //   setError('Unauthorized')
+        // } else {
+        //   console.error('Error fetching classification results:', error);
+        //   setError('Internal server error');
+        // }
       }
     }
 
@@ -87,6 +107,10 @@ const PreviousResults = ({ userId }) => {
             next
           </button>
         </div>
+
+        {/* <button className='btn' onClick={() => refresh()}>
+            Refresh
+        </button> */}
     </div>
   )
 }

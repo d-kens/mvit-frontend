@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from '../../api/axios';
+// import axios from '../../api/axios';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 const CLASSIFY_URL = '/classification/classify'
 
 function Classify() {
+  const axiosPrivate = useAxiosPrivate();
 
   const [result, setResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -30,7 +32,7 @@ function Classify() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await axios.post(CLASSIFY_URL, formData);
+      const response = await axiosPrivate.post(CLASSIFY_URL, formData);
       setResult(response.data);
       // clear any previous error on successfull response
       setRequestError(null)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Link, useLocation } from 'react-router-dom'
 
-const DashBoardLayout = () => {
+const DashBoardLayout = ({ userName }) => {
 
   const location = useLocation();
   const isDashboardRoute = location.pathname === '/dash';
@@ -21,7 +21,7 @@ const DashBoardLayout = () => {
         <div className="nav">
           <div>
             <h3>Welcome</h3>
-            <p className='user'>Dickens</p>
+            <p className='user'>{ userName }</p>
           </div>
           <button className='btn'>Logout</button>
         </div>
