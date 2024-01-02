@@ -292,11 +292,18 @@ body {
 
 .classify-card .classify-result-container .classify-result {
     margin-bottom: 5px;
+    color: green;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+    text-align: center;
 }
 
-.classify-card .classify-result-container .classify-result span{
-    color: black;
-    font-weight: bold;
+.classify-result-container .label-probabilities {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e4e4e4;
+    border-radius: 4px;
 }
 
 @media (min-width: 1000px) {

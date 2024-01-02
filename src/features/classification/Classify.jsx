@@ -43,6 +43,16 @@ function Classify() {
     }
   };
 
+  console.log(result)
+
+  function getColor(probability) {
+    if (probability >= 0.5) {
+      return 'green';  // or any color you want for high probability
+    } else {
+      return 'red';  // or any color you want for low probability
+    }
+  }
+
 
   return (
     <div className='classify-card'>
@@ -59,13 +69,23 @@ function Classify() {
 
         {result && (
             <div className='classify-result-container'>
-                <div className='classify-result'>
-                    <p><span>Detected</span>: { result.label }</p>
-                </div>
+              <div className='classify-result'>
+                <p>{ result.label }</p>
+              </div>
 
-                <div className="classify-image-container">
-                    <img src={result.image_url} alt="Classified Image" />
-                </div>
+              <div className="classify-image-container">
+                <img src={result.image_url} alt="Classified Image" />
+              </div>
+
+              <div className='label-probabilities'>
+                {Object.entries(result.label_probabilities).map(([category, probability]) => (
+                  <p key={category} style={{ color: getColor(probability) }}>
+                    {category}: {probability.toFixed(4)}
+                  </p>
+                ))}
+              </div>
+
+              
             </div>
         )}
 
